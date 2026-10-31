@@ -1,0 +1,31 @@
+# Bài 5: Giao tiếp Bất đồng bộ trong Doanh nghiệp
+
+## 1. Bối cảnh múi giờ
+Hà Nội (UTC+7), Nhật (UTC+9), Mỹ (UTC-8 mùa đông / UTC-7 mùa hè).
+Ví dụ: 9h sáng Hà Nội = 11h sáng Nhật = 18h chiều hôm trước ở Mỹ (giờ mùa đông).
+Lệch giờ nên không thể chờ trả lời ngay, cần giao tiếp bất đồng bộ.
+
+## 2. Nguyên tắc
+- Mỗi tin nhắn phải đủ ngữ cảnh để người đọc tự xử lý, không cần hỏi lại.
+- Dùng Schedule Send để tin nhắn đến đúng giờ làm việc của người nhận, không làm phiền lúc ngủ.
+- Thống nhất khung giờ phản hồi (ví dụ trong vòng 24 giờ), việc gấp dùng kênh riêng.
+
+## 3. Tin nhắn mẫu (yêu cầu hỗ trợ fix bug)
+Chào cả nhóm, mình cần hỗ trợ fix lỗi đăng nhập trên bản staging.
+- Hiện tượng: bấm "Đăng nhập" thì màn hình trắng, không báo lỗi.
+- Tái hiện: vào trang /login, nhập tài khoản test@abc.com, bấm Đăng nhập.
+- Môi trường: Chrome 120, Windows 11, nhánh feature/login-fix.
+- Log: console báo "TypeError: token is undefined" (ảnh đính kèm, link commit: ...).
+- Đã thử: xóa cache, đổi trình duyệt vẫn lỗi.
+- Mong muốn: ai kiểm tra phần xử lý token giúp mình, hoặc gợi ý hướng sửa.
+- Deadline: cần xong trước 17h thứ Sáu (giờ Hà Nội). Bạn nào xem được thì reply vào thread này nhé. Cảm ơn cả nhà!
+
+## 4. Lịch gửi tin (Schedule Send)
+| Người nhận | Giờ gửi (giờ địa phương) | Quy đổi giờ Hà Nội |
+|---|---|---|
+| Thành viên Hà Nội | 08:30 sáng | 08:30 |
+| Thành viên Nhật | 08:30 sáng | 06:30 |
+| Thành viên Mỹ (PST) | 08:30 sáng | 23:30 |
+
+- Đặt lịch gửi để tin đến đầu giờ làm của từng người, không đến lúc họ đang ngủ.
+- Dùng thread và @mention đúng người, ghi rõ deadline theo múi giờ.
